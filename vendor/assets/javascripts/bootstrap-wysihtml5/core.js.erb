@@ -27,6 +27,17 @@
               "</div>" +
             "</li>";
         },
+        
+        
+        "justify": function(locale, options) {
+            return "<li>" +
+                   "<div class='btn-group'>" +
+                       "<a class='btn' data-wysihtml5-command='justifyLeft' title='" + "left" + "'><i class='icon-align-left'></i></a>" +
+                       "<a class='btn' data-wysihtml5-command='justifyCenter' title='" + "center" + "'><i class='icon-align-center'></i></a>" +
+                       "<a class='btn' data-wysihtml5-command='justifyRight' title='" + "right" + "'><i class='icon-align-right'></i></a>" +
+                   "</div>" +
+               "</li>";
+         },
 
         "lists": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
@@ -377,6 +388,7 @@
         "font-styles": true,
         "color": false,
         "emphasis": true,
+        "justify": true,
         "lists": true,
         "html": false,
         "link": true,
@@ -384,6 +396,10 @@
         events: {},
         parserRules: {
             classes: {
+                // (path_to_project/lib/css/wysiwyg-justify.css)
+               "wysiwyg-text-align-left": 1,
+               "wysiwyg-text-align-center": 1,
+               "wysiwyg-text-align-right": 1,
                 // (path_to_project/lib/css/wysiwyg-color.css)
                 "wysiwyg-color-silver" : 1,
                 "wysiwyg-color-gray" : 1,
@@ -435,7 +451,8 @@
                 "div": 1
             }
         },
-        stylesheets: ["<%= Rails.configuration.assets.prefix + '/bootstrap-wysihtml5/wysiwyg-color.css' %>"], // (path_to_project/lib/css/wysiwyg-color.css)
+        stylesheets: ["<%= Rails.configuration.assets.prefix + '/bootstrap-wysihtml5/wysiwyg-color.css' %>",
+                      "<%= Rails.configuration.assets.prefix + '/bootstrap-wysihtml5/wysiwyg-justify.css' %>"],
         locale: "en"
     };
 
@@ -455,6 +472,11 @@
                 bold: "Bold",
                 italic: "Italic",
                 underline: "Underline"
+            },            
+            justify: {
+                left: "Align left",
+                center: "Align center",
+                right: "Align right"
             },
             lists: {
                 unordered: "Unordered list",
