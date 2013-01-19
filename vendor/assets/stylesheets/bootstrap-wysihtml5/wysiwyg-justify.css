@@ -7,6 +7,10 @@
 }
 
 .wysiwyg-text-align-right {
-/*  text-align: right;*/
+  text-align: right;
+/*  float:right;*/
+}
+
+.wysiwyg-text-float-right{
   float:right;
 }
