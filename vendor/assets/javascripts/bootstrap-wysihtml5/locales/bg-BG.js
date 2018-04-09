@@ -1,13 +1,24 @@
 /**
  * Bulgarian translation for bootstrap-wysihtml5
  */
-(function($){
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define('bootstrap.wysihtml5.bg-BG', ['jquery', 'bootstrap.wysihtml5'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function($){
     $.fn.wysihtml5.locale["bg-BG"] = {
         font_styles: {
             normal: "Нормален текст",
             h1: "Заглавие 1",
             h2: "Заглавие 2",
-            h3: "Заглавие 3"
+            h3: "Заглавие 3",
+            h4: "Заглавие 4",
+            h5: "Заглавие 5",
+            h6: "Заглавие 6"
         },
         emphasis: {
             bold: "Удебелен",
@@ -45,5 +56,5 @@
             orange: "Оранжев"
         }
     };
-}(jQuery));
+}));
 

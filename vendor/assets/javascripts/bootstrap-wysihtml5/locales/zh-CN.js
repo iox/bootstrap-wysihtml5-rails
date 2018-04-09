@@ -1,13 +1,24 @@
 /**
  * Chinese translation for bootstrap-wysihtml5
  */
-(function($){
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define('bootstrap.wysihtml5.zh-CN', ['jquery', 'bootstrap.wysihtml5'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function($){
     $.fn.wysihtml5.locale["zh-CN"] = {
         font_styles: {
             normal: "正文",
             h1: "标题 1",
             h2: "标题 2",
-            h3: "标题 3"
+            h3: "标题 3",
+            h4: "标题 4",
+            h5: "标题 5",
+            h6: "标题 6"
         },
         emphasis: {
             bold: "粗体",
@@ -22,7 +33,8 @@
         },
         link: {
             insert: "插入链接",
-            cancel: "取消"
+            cancel: "取消",
+            target: "新窗口打开链接"
         },
         image: {
             insert: "插入图片",
@@ -45,4 +57,4 @@
             orange: "橙色"
         }
     };
-}(jQuery));
+}));
