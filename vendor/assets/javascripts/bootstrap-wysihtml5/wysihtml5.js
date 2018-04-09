@@ -8516,8 +8516,12 @@ wysihtml5.views.View = Base.extend(
       var dataTransfer = event.dataTransfer,
           data;
 
-
-      console.log('PASTED', event);
+      // Modification for Medas. When pasting text from Word, we want to ignore the formatting, and focus on the plain text
+      // The only thing we change is to replace new lines with line breaks, and tabs with spaces
+      if(event.clipboardData && event.clipboardData.getData && event.clipboardData.getData("text/plain")) {
+        data = event.clipboardData.getData("text/plain").replace(/\n/g, "<br>").replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+      }
+	    
       if (dataTransfer && browser.supportsDataTransfer()) {
         data = dataTransfer.getData("text/html") || dataTransfer.getData("text/plain");
       }
