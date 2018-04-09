@@ -8529,7 +8529,8 @@ wysihtml5.views.View = Base.extend(
         element.focus();
         that.commands.exec("insertHTML", data);
         that.parent.fire("paste").fire("paste:composer");
-        event.stopPropagation();
+	// Modification for Medas. This was provoking that, when pasting using the mouse (right click > paste) and not the keyboard shortcut (control + v), the text disappeared
+        //event.stopPropagation();
         event.preventDefault();
       } else {
         setTimeout(function() {
